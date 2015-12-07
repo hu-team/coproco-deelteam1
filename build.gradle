@@ -4,8 +4,10 @@ version '1.0-SNAPSHOT'
 apply plugin:'java'
 apply plugin:'application'
 
+apply plugin: 'idea'
+
 mainClassName = "nl.hu.coproco.Main"
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
