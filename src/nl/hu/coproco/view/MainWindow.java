@@ -10,4 +10,8 @@ public class MainWindow extends Application {
     public void start(Stage primaryStage) throws Exception {
 
     }
+
+    public void openWindow(String args[]) {
+        launch(args);
+    }
 }
