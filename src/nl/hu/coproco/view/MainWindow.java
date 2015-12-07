@@ -9,5 +9,9 @@ public class MainWindow extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("CoProCo");
+//        primaryStage.setScene();
+        primaryStage.show();
     }
 }
