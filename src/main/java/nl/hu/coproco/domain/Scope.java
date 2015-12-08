@@ -1,7 +1,16 @@
 package nl.hu.coproco.domain;
 
-/**
- * Created by tom on 8-12-2015.
- */
+import java.util.Observable;
+
 public class Scope {
+    private String name;
+
+    public Scope(String name) {
+        this.name = name;
+    }
+
+
+    public String getName() {
+        return this.name;
+    }
 }
