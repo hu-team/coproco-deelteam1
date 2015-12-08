@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EditorController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Label id="namelabel" layoutX="33.0" layoutY="54.0" text="Name:" />
-            <TextField id="namefield" layoutX="131.0" layoutY="50.0" />
+            <Label id="namelabel" layoutX="14.0" layoutY="14.0" text="Name:" />
+            <TextField id="namefield" fx:id="namefield" layoutX="79.0" layoutY="10.0" />
+            <Button id="addbutton" fx:id="addbutton" layoutX="574.0" layoutY="361.0" mnemonicParsing="false" text="Add" />
       </children>
     </AnchorPane>
   </children>

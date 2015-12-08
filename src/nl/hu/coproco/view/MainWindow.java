@@ -19,7 +19,7 @@ public class MainWindow extends Application {
         //primaryStage.setResizable(false);
         primaryStage.setTitle("CoProCo");
 
-        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.setScene(new Scene(root));
         primaryStage.sizeToScene();
         primaryStage.show();
     }
