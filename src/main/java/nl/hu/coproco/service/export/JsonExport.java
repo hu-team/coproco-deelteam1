@@ -16,43 +16,56 @@ import java.util.Arrays;
 public class JsonExport implements Export {
     private PatternStorage patternStorage;
     private ArrayList<Pattern> allPatterns = new ArrayList<Pattern>();
+    private int i = 0;
 
-    @Override // functie die alles van de ophaal functie omzet naar Json export
+    //Initializing new JsonArray
+    private JsonArray jArry = new JsonArray();
+
+    @Override
     public boolean saveExport(String filename) {
-        allPatterns = patternStorage.getPatterns();
-        //  JsonArray JsonArray = new JsonArray.fromObject(allPatterns);
-
-
-
-        return true;
-
-        try
-        {
-            int i = 0;
-            JsonArray jArry = new JsonArray();
-            for (i=0;i<=allPatterns.size();i++) //
-            {
-                JsonObject jObjd = new JsonObject();
-                jObjd.addProperty("key", allPatterns.get(i).getConsequences());
-                jObjd.addProperty("key", allPatterns.get(i).getName());
-                jObjd.addProperty("key", allPatterns.get(i).getProblem());
-                jObjd.addProperty("key", allPatterns.get(i).getSolution());
-                jObjd.addProperty("key", allPatterns.get(i).getDiagram().getFilePath());
-                jObjd.addProperty("key", allPatterns.get(i).getPurpose().getName());
-                jObjd.addProperty("key", allPatterns.get(i).getScope().getName());
-                jObjd.addProperty("key", allPatterns.get(i).getClass().getName());
-
-                jObjd.put("key", value);
-                jArry.put(jObjd);
-
-            }
-        }
-        catch(JsonIOException ex)
-        {}
+       if(fillJsonArray(filename)){
+           return true;
+       }else{return false;}
     }
 
+    public boolean fillJsonArray(String fileName){
+        //getting all patterns, should use the controller instead of speaking directly to patternStorage
+        allPatterns = patternStorage.getPatterns();
 
+        //What do we use fileName for?
 
+        //try catch to fill up the Json-array
+        try
+        {
+            for (i=0;   i<=allPatterns.size();  i++)
+            {
+                JsonObject jObjd = new JsonObject();
+                //One JsonObject per Object in the ArrayList
 
-    //export waarheen? Gewoon textfile?
+                jObjd.addProperty("Name", allPatterns.get(i).getName());
+                jObjd.addProperty("Problem", allPatterns.get(i).getProblem());
+                jObjd.addProperty("Solution", allPatterns.get(i).getSolution());
+                jObjd.addProperty("Consequences", allPatterns.get(i).getConsequences());
+                jObjd.addProperty("ScopeName", allPatterns.get(i).getScope().getName());
+                jObjd.addProperty("PurposeName", allPatterns.get(i).getPurpose().getName());
+                jObjd.addProperty("Diagram", allPatterns.get(i).getDiagram().getFilePath());
+
+                //This is optional, but could be useful
+                jObjd.addProperty("ClassName", allPatterns.get(i).getClass().getName());
+
+                //Adding to the array
+                jArry.add(jObjd);
+            }
+        }
+
+        catch(JsonIOException ex)
+        {
+            System.out.println("Error bij " + i + "- fillJsonArray() Catch(){}");
+            jArry = null;
+            return false;
+        }
+        //If everything in the for loop has been written succesfully to the jArry it will return true,
+        // so that it can be exported. You want to empty the jArry once you get an error to prevent duplicates.
+        return true;
+    }
 }
