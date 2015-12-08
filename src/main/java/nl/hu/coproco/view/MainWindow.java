@@ -19,9 +19,8 @@ public class MainWindow extends Application {
             e.printStackTrace();
             return;
         }
-        //EditorController editorController = (EditorController) fxmlLoader.getController();
 
-        //primaryStage.setResizable(false);
+        primaryStage.setResizable(false);
         primaryStage.setTitle("CoProCo");
 
         primaryStage.setScene(new Scene(root));
