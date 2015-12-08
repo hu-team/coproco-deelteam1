@@ -14,7 +14,15 @@ public class MainApplication {
      */
     public MainApplication(String args[]) {
         this.args = args;
+
+        // Init the purpose and scope stores
+        initStorage();
+
         startGui();
+    }
+
+    private void initStorage() {
+
     }
 
     /**

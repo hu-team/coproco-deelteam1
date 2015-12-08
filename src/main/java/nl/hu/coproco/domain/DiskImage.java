@@ -17,6 +17,11 @@ public class DiskImage implements CachableImage {
         return this.image;
     }
 
+    @Override
+    public String getFilePath() {
+        return this.filePath;
+    }
+
     private void loadFromDisk(String file) {
         this.image = new Image(file);
     }

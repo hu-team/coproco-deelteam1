@@ -7,6 +7,9 @@ import nl.hu.coproco.domain.Scope;
 
 import java.util.ArrayList;
 
+/**
+ * Storage facade
+ */
 public class PatternService {
 
     public static ArrayList<Pattern> getAllPatterns() {
