@@ -6,6 +6,15 @@ import java.util.Observable;
 public class PatternStorage extends Observable {
     private ArrayList<Pattern> patternStorage;
 
+    private static PatternStorage instance;
+
+    public static PatternStorage getInstance() {
+        if (instance == null) {
+            instance = new PatternStorage();
+        }
+        return instance;
+    }
+
     public PatternStorage() {
         this.patternStorage = new ArrayList<Pattern>();
     }
