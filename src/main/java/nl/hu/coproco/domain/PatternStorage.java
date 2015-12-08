@@ -13,13 +13,13 @@ public class PatternStorage extends Observable {
     public void addPattern(Pattern pattern) {
         this.patternStorage.add(pattern);
 
-        this.notifyObservers(this.patternStorage);
+        this.notifyObservers();
     }
 
     public void removePattern(Pattern pattern) {
         this.patternStorage.remove(pattern);
 
-        this.notifyObservers(this.patternStorage);
+        this.notifyObservers();
     }
 
     public Pattern getPattern(int index) throws IndexOutOfBoundsException {
