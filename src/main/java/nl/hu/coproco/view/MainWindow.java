@@ -11,9 +11,14 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Parent root;
 
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editor/editorScene.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/editorScene.fxml"));
+        try {
+            root = FXMLLoader.load(getClass().getResource("/editorScene.fxml"));
+        } catch(Exception e ) {
+            e.printStackTrace();
+            return;
+        }
         //EditorController editorController = (EditorController) fxmlLoader.getController();
 
         //primaryStage.setResizable(false);

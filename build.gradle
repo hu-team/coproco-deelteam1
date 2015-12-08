@@ -6,6 +6,7 @@ apply plugin:'application'
 
 apply plugin:'idea'
 
+
 mainClassName = "nl.hu.coproco.Main"
 sourceCompatibility = 1.8
 
