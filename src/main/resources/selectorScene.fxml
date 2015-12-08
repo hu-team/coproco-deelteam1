@@ -5,7 +5,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
@@ -13,25 +12,26 @@
             <Label layoutX="14.0" layoutY="25.0" text="Scope: " />
             <Label layoutX="14.0" layoutY="64.0" text="Purpose:" />
             <Label layoutX="14.0" layoutY="107.0" text="Problem: " />
-            <ComboBox fx:id="scopebox" layoutX="99.0" layoutY="20.0" prefWidth="150.0" />
-            <ComboBox fx:id="purposebox" layoutX="99.0" layoutY="59.0" prefWidth="150.0" />
-            <ComboBox fx:id="problembox" layoutX="99.0" layoutY="102.0" prefWidth="150.0" />
+            <ComboBox id="scopebox" fx:id="scopebox" layoutX="99.0" layoutY="20.0" prefHeight="25.0" prefWidth="211.0" />
+            <ComboBox id="purposebox" fx:id="purposebox" layoutX="99.0" layoutY="59.0" prefHeight="25.0" prefWidth="211.0" />
+            <ComboBox id="problembox" fx:id="problembox" layoutX="99.0" layoutY="102.0" prefHeight="25.0" prefWidth="211.0" />
             <Pane layoutX="14.0" layoutY="140.0" prefHeight="246.0" prefWidth="297.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-style: dotted;">
                <children>
                   <Label layoutX="11.0" layoutY="14.0" text="Name: " />
-                  <Label fx:id="namefield" alignment="TOP_LEFT" layoutX="68.0" layoutY="14.0" prefHeight="55.0" prefWidth="218.0" wrapText="true" />
-                  <Label fx:id="solutionfield" alignment="TOP_LEFT" layoutX="68.0" layoutY="69.0" prefHeight="55.0" prefWidth="218.0" wrapText="true" />
+                  <Label id="namefield" fx:id="namefield" alignment="TOP_LEFT" layoutX="68.0" layoutY="14.0" prefHeight="55.0" prefWidth="218.0" wrapText="true" />
+                  <Label id="solutionfield" fx:id="solutionfield" alignment="TOP_LEFT" layoutX="68.0" layoutY="69.0" prefHeight="55.0" prefWidth="218.0" wrapText="true" />
                   <Label layoutX="11.0" layoutY="69.0" text="Solution:" />
                   <Label layoutX="11.0" layoutY="124.0" text="Solution:" />
-                  <Label fx:id="consequencesfield" alignment="TOP_LEFT" layoutX="68.0" layoutY="124.0" prefHeight="92.0" prefWidth="218.0" wrapText="true" />
+                  <Label id="consequencesfield" fx:id="consequencesfield" alignment="TOP_LEFT" layoutX="68.0" layoutY="124.0" prefHeight="92.0" prefWidth="218.0" wrapText="true" />
                </children>
             </Pane>
-            <Pane layoutX="323.0" layoutY="17.0" prefHeight="368.0" prefWidth="263.0" style="-fx-border-color: black; -fx-border-style: dotted;">
+            <Pane layoutX="323.0" layoutY="17.0" prefHeight="342.0" prefWidth="263.0" style="-fx-border-color: black; -fx-border-style: dotted;">
                <children>
-                  <ImageView fx:id="diagramview" fitHeight="268.0" fitWidth="237.0" layoutX="14.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="diagramview" fx:id="diagramview" fitHeight="293.0" fitWidth="237.0" layoutX="14.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
                   <Label layoutX="21.0" layoutY="7.0" text="Diagram: " />
                </children>
             </Pane>
+            <Button layoutX="505.0" layoutY="368.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Cancel" />
          </children>
       </AnchorPane>
    </children>
