@@ -10,7 +10,7 @@ public class Pattern extends Observable {
     private String solution;
     private String consequences;
 
-    private String diagram;
+    private CachableImage diagram;
 
     private Purpose purpose;
     private Scope scope;
@@ -71,5 +71,14 @@ public class Pattern extends Observable {
     public void setScope(Scope scope) {
         this.scope = scope;
         this.notifyObservers();
+    }
+
+    public void setDiagram(CachableImage image) {
+        this.diagram = image;
+        this.notifyObservers();
+    }
+
+    public CachableImage getDiagram() {
+        return this.diagram;
     }
 }
