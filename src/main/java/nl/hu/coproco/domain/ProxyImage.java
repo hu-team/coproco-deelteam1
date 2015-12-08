@@ -17,4 +17,9 @@ public class ProxyImage implements CachableImage {
         }
         return this.diskImage.getDisplayableImage();
     }
+
+    @Override
+    public String getFilePath() {
+        return this.filePath;
+    }
 }
