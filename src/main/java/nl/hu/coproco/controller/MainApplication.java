@@ -8,25 +8,13 @@ import nl.hu.coproco.view.MainWindow;
 public class MainApplication {
     private String[] args;
 
-
     /**
      * Start MainApplication
      * @param args Arguments
      */
     public MainApplication(String args[]) {
         this.args = args;
-
-        initStorage();
         startGui();
-    }
-
-
-    /**
-     * Init Storage for Domain Classes.
-     */
-    private void initStorage() {
-        // Make the Singleton classes so the arraylists will be initialized.
-
     }
 
     /**
