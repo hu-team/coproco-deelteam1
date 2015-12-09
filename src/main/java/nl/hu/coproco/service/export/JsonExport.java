@@ -82,7 +82,9 @@ public class JsonExport implements Export {
 
     private void writeFile(JsonObject outputFileJSon) {
         try{
+            //Creating the actual file for the client. Path could contain variables to decide the path yourself, but we should have a String for it then
             FileWriter exportFile = new FileWriter("/Users/Patterns.txt");
+            //Writing the JSon to text in this file
             exportFile.write(outputFileJSon.toString());
             System.out.println("Succesfully copied JSON Object to File...");
         }
