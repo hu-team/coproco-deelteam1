@@ -12,6 +12,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import nl.hu.coproco.domain.Pattern;
+import nl.hu.coproco.domain.Purpose;
+import nl.hu.coproco.domain.Scope;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -54,7 +57,15 @@ public class EditorController implements Initializable{
             alert.showAndWait();
 
         }else{
-            System.out.println("IT FUCKING WORKED!");
+            Pattern newPattern = new Pattern(namefield.getText());
+            newPattern.setScope(new Scope(scopebox.getValue().toString()));
+            newPattern.setPurpose(new Purpose(purposebox.getValue().toString()));
+            newPattern.setConsequences(consequencesfield.getText());
+            newPattern.setProblem(problemfield.getText());
+            newPattern.setSolution(solutionfield.getText());
+
+            //TODO hier moet nog image gedoe komen
+
         }
     }
 
