@@ -15,6 +15,7 @@ import javafx.stage.FileChooser;
 import nl.hu.coproco.domain.Pattern;
 import nl.hu.coproco.domain.Purpose;
 import nl.hu.coproco.domain.Scope;
+import nl.hu.coproco.service.PatternService;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -66,6 +67,7 @@ public class EditorController implements Initializable{
 
             //TODO hier moet nog image gedoe komen
 
+            PatternService.addPattern(newPattern);
         }
     }
 
