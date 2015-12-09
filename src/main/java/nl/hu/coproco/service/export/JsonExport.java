@@ -21,6 +21,7 @@ public class JsonExport implements Export {
     //Initializing new JsonArray
     private JsonArray jArry = new JsonArray();
 
+
     //Main method used to call the other methods and use this class
     public boolean saveExport(String filename) {
        if(fillJsonArray()){
@@ -30,7 +31,7 @@ public class JsonExport implements Export {
        }else{return false;}
     }
 
-    protected boolean fillJsonArray(){
+    private boolean fillJsonArray(){
         //getting all patterns, should use the controller instead of speaking directly to patternStorage
         allPatterns = patternStorage.getPatterns();
 
@@ -69,7 +70,7 @@ public class JsonExport implements Export {
         return true;
     }
 
-    protected void createJsonOutputFile(String filename) {
+    private void createJsonOutputFile(String filename) {
         //Creating the output JSon file
         JsonObject outputFileJSon = new JsonObject();
         outputFileJSon.addProperty("name", filename);
@@ -79,7 +80,7 @@ public class JsonExport implements Export {
         writeFile(outputFileJSon);
     }
 
-    protected void writeFile(JsonObject outputFileJSon) {
+    private void writeFile(JsonObject outputFileJSon) {
         try{
             FileWriter exportFile = new FileWriter("/Users/Patterns.txt");
             exportFile.write(outputFileJSon.toString());
