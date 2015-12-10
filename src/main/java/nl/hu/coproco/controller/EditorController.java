@@ -75,9 +75,9 @@ public class EditorController implements Initializable{
 
         FileChooser fileChooser = new FileChooser();
 
-        FileChooser.ExtensionFilter filterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
-        FileChooser.ExtensionFilter filterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
-        fileChooser.getExtensionFilters().addAll(filterJPG, filterPNG);
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
 
         File file = fileChooser.showOpenDialog(null);
 
@@ -90,7 +90,7 @@ public class EditorController implements Initializable{
             diagramfield.setPreserveRatio(true);
 
         }catch (Exception e) {
-            System.out.println(e);
+
         }
 
     }
