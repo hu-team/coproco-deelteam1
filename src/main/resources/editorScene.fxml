@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.hu.coproco.controller.EditorController">
+<VBox id="editorcontainer" fx:id="editorcontainer" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.hu.coproco.controller.EditorController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
@@ -18,7 +18,7 @@
             <ComboBox id="purposebox" fx:id="purposebox" layoutX="135.0" layoutY="102.0" prefWidth="150.0" />
             <Label layoutX="14.0" layoutY="107.0" text="Purpose:" />
             <Label layoutX="14.0" layoutY="152.0" text="Problem:" />
-            <Button id="cancelbutton" fx:id="cancelbutton" layoutX="410.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancel" />
+            <Button id="cancelbutton" fx:id="cancelbutton" layoutX="410.0" layoutY="361.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="25.0" prefWidth="91.0" text="Cancel" />
             <TextField id="problemfield" fx:id="problemfield" layoutX="135.0" layoutY="148.0" />
             <TextField id="solutionfield" fx:id="solutionfield" layoutX="135.0" layoutY="188.0" />
             <Label layoutX="14.0" layoutY="192.0" text="Solution:" />

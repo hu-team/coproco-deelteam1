@@ -14,7 +14,7 @@ public class MainWindow extends Application {
         Parent root;
 
         try {
-            root = FXMLLoader.load(getClass().getResource("/editorScene.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
         } catch(Exception e ) {
             e.printStackTrace();
             return;
