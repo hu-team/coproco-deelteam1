@@ -18,6 +18,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
     compile 'com.google.code.gson:gson:2.5'
+    compile 'commons-codec:commons-codec:1.10'
 }
 
 sourceSets {
