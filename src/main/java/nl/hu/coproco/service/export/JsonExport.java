@@ -49,7 +49,7 @@ public class JsonExport implements Export {
                 jObj.addProperty("Consequences", allPatterns.get(i).getConsequences());
                 jObj.addProperty("ScopeName", allPatterns.get(i).getScope().getName());
                 jObj.addProperty("PurposeName", allPatterns.get(i).getPurpose().getName());
-                jObj.addProperty("Diagram", allPatterns.get(i).getDiagram().getFilePath());
+                jObj.addProperty("Diagram", allPatterns.get(i).getDiagram().getEncodedImage());
 
                 //This is optional, but could be useful
                 jObj.addProperty("ClassName", allPatterns.get(i).getClass().getName());
