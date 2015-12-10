@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import nl.hu.coproco.domain.Pattern;
+import nl.hu.coproco.domain.ProxyImage;
 import nl.hu.coproco.domain.Purpose;
 import nl.hu.coproco.domain.Scope;
 import nl.hu.coproco.service.PatternService;
@@ -38,6 +39,8 @@ public class EditorController implements Initializable{
     @FXML private Button browsebutton;
     @FXML private Button cancelbutton;
     @FXML private Button addbutton;
+
+    private BufferedImage image;
 
 
     @Override
@@ -65,9 +68,11 @@ public class EditorController implements Initializable{
             newPattern.setProblem(problemfield.getText());
             newPattern.setSolution(solutionfield.getText());
 
-            //TODO hier moet nog image gedoe komen
+            ProxyImage image = new ProxyImage(this.image);
+            newPattern.setDiagram(image);
 
             PatternService.addPattern(newPattern);
+            System.out.println(image.getEncodedImage());
         }
     }
 
@@ -82,15 +87,14 @@ public class EditorController implements Initializable{
         File file = fileChooser.showOpenDialog(null);
 
         try {
-
-            BufferedImage bufferedImage = ImageIO.read(file);
-            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+            this.image = ImageIO.read(file);
+            Image image = SwingFXUtils.toFXImage(this.image, null);
             diagramfield.setImage(image);
             diagramfield.setFitWidth(imagepane.getWidth());
             diagramfield.setPreserveRatio(true);
 
         }catch (Exception e) {
-
+            e.printStackTrace();
         }
 
     }
