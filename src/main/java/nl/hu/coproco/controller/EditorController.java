@@ -1,5 +1,6 @@
 package nl.hu.coproco.controller;
 
+import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +23,8 @@ import nl.hu.coproco.domain.ProxyImage;
 import nl.hu.coproco.domain.Purpose;
 import nl.hu.coproco.domain.Scope;
 import nl.hu.coproco.service.PatternService;
+import nl.hu.coproco.service.PurposeService;
+import nl.hu.coproco.service.ScopeService;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -33,8 +36,8 @@ import java.util.ResourceBundle;
 public class EditorController implements Initializable{
 
     @FXML private TextField namefield;
-    @FXML private ComboBox scopebox;
-    @FXML private ComboBox purposebox;
+    @FXML private ComboBox<Scope> scopebox;
+    @FXML private ComboBox<Purpose> purposebox;
     @FXML private TextField problemfield;
     @FXML private TextField solutionfield;
     @FXML private TextField consequencesfield;
@@ -56,7 +59,8 @@ public class EditorController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        scopebox.setItems(FXCollections.observableArrayList(ScopeService.getAllScopes()));
+        purposebox.setItems(FXCollections.observableArrayList(PurposeService.getAllPurposes()));
     }
 
     @FXML private void addPatern(ActionEvent event){

@@ -22,7 +22,8 @@ public class ScopeStorage {
     }
 
     private void initDefaultScopes() {
-        // TODO: Default inserts
+        this.scopeStorage.add(new Scope("Class"));
+        this.scopeStorage.add(new Scope("Object"));
     }
 
     public ArrayList<Scope> getScopes() {

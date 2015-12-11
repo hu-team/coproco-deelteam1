@@ -1,5 +1,6 @@
 package nl.hu.coproco.controller;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,18 +12,19 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import nl.hu.coproco.domain.Purpose;
+import nl.hu.coproco.domain.Scope;
+import nl.hu.coproco.service.PurposeService;
+import nl.hu.coproco.service.ScopeService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Developed by Arjan.
- */
 public class SelectorController implements Initializable {
 
-    @FXML private ComboBox scopebox;
-    @FXML private ComboBox purposebox;
+    @FXML private ComboBox<Scope> scopebox;
+    @FXML private ComboBox<Purpose> purposebox;
     @FXML private ComboBox problembox;
     @FXML private Label namefield;
     @FXML private Label solutionfield;
@@ -38,7 +40,8 @@ public class SelectorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        scopebox.setItems(FXCollections.observableArrayList(ScopeService.getAllScopes()));
+        purposebox.setItems(FXCollections.observableArrayList(PurposeService.getAllPurposes()));
     }
 
     @FXML private void openMainMenu() throws IOException {

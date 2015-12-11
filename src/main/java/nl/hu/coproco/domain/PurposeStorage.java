@@ -22,7 +22,9 @@ public class PurposeStorage {
     }
 
     private void initDefaultPurposes() {
-        // TODO: Default inserts
+        this.purposeStorage.add(new Purpose("Creational"));
+        this.purposeStorage.add(new Purpose("Structural"));
+        this.purposeStorage.add(new Purpose("Behavioral"));
     }
 
     public ArrayList<Purpose> getPurposes() {
