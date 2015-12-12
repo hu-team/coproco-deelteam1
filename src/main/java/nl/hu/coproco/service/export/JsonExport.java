@@ -21,6 +21,9 @@ public class JsonExport implements Export {
         //Initializing new JsonArray
         private JsonArray jArry = new JsonArray();
 
+    //End of initializing
+
+
         //test function
     public JsonExport(PatternStorage PatternStorage){
             patternStorage = PatternStorage;
@@ -30,7 +33,6 @@ public class JsonExport implements Export {
     public boolean saveExport(String filename) {
        if(fillJsonArray()){
            //Create the JSon output file
-
            createJsonOutputFile(filename);
            return true;
 
@@ -40,7 +42,6 @@ public class JsonExport implements Export {
     private boolean fillJsonArray(){
         //getting all patterns, should use the controller instead of speaking directly to patternStorage
         allPatterns = patternStorage.getPatterns();
-
 
         //try catch to fill up the Json-array
         try {
