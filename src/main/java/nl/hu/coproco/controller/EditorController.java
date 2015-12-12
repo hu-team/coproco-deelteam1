@@ -110,11 +110,13 @@ public class EditorController implements Initializable{
 
         try {
             this.image = ImageIO.read(file);
-            Image image = SwingFXUtils.toFXImage(this.image, null);
-            diagramfield.setImage(image);
-            diagramfield.setFitWidth(imagepane.getWidth());
-            diagramfield.setPreserveRatio(true);
 
+            if (this.image != null) {
+                Image image = SwingFXUtils.toFXImage(this.image, null);
+                diagramfield.setImage(image);
+                diagramfield.setFitWidth(imagepane.getWidth());
+                diagramfield.setPreserveRatio(true);
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }
