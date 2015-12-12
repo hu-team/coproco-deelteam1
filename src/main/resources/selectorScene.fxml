@@ -12,8 +12,8 @@
             <Label layoutX="14.0" layoutY="25.0" text="Scope: " />
             <Label layoutX="14.0" layoutY="64.0" text="Purpose:" />
             <Label layoutX="14.0" layoutY="107.0" text="Problem: " />
-            <ComboBox id="scopebox" fx:id="scopebox" layoutX="99.0" layoutY="20.0" prefHeight="25.0" prefWidth="211.0" />
-            <ComboBox id="purposebox" fx:id="purposebox" layoutX="99.0" layoutY="59.0" prefHeight="25.0" prefWidth="211.0" />
+            <ComboBox id="scopebox" fx:id="scopebox" layoutX="99.0" layoutY="20.0" onAction="#filterProblem" prefHeight="25.0" prefWidth="211.0" />
+            <ComboBox id="purposebox" fx:id="purposebox" layoutX="99.0" layoutY="59.0" onAction="#filterProblem" prefHeight="25.0" prefWidth="211.0" />
             <ComboBox id="problembox" fx:id="problembox" layoutX="99.0" layoutY="102.0" prefHeight="25.0" prefWidth="211.0" />
             <Pane layoutX="14.0" layoutY="140.0" prefHeight="246.0" prefWidth="297.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-style: dotted;">
                <children>

@@ -59,6 +59,28 @@ public class SelectorController implements Initializable, Observer, EventHandler
         PatternService.setObserver(this);
     }
 
+    @FXML private void selectProblem(){
+        //TODO Alle fields moeten gevuld worden.
+    }
+
+    @FXML private void filterProblem() {
+        problembox.getSelectionModel().clearSelection();
+        problembox.getItems().clear();
+
+        if(purposebox.getSelectionModel().getSelectedItem() == null ||
+                scopebox.getSelectionModel().getSelectedItem() == null){
+            return;
+        }
+
+        problembox.setItems(FXCollections
+                .observableArrayList(PatternService
+                        .getFilteredPatterns(
+                                purposebox.getSelectionModel().getSelectedItem(),
+                                scopebox.getSelectionModel().getSelectedItem())
+                )
+        );
+    }
+
     @FXML private void openMainMenu() throws IOException {
         windowStage = (Stage) selectorcontainer.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
