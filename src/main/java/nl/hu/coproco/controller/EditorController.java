@@ -65,10 +65,13 @@ public class EditorController implements Initializable{
 
     @FXML private void addPatern(ActionEvent event){
 
-        if(namefield.getText().isEmpty() || namefield == null || scopebox.getValue() == null || purposebox.getValue() == null ||
-                problemfield.getText().isEmpty() || problemfield == null || solutionfield.getText().isEmpty() ||
-                solutionfield == null || consequencesfield.getText().isEmpty() || consequencesfield == null ||
-                diagramfield.getImage() == null) {
+        if(namefield == null || namefield.getText().isEmpty()
+                || scopebox.getValue() == null
+                || purposebox.getValue() == null
+                || problemfield == null || problemfield.getText().isEmpty()
+                || solutionfield == null || solutionfield.getText().isEmpty()
+                || consequencesfield == null || consequencesfield.getText().isEmpty()
+                || diagramfield.getImage() == null) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid");
