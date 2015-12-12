@@ -87,7 +87,11 @@ public class EditorController implements Initializable{
             newPattern.setDiagram(image);
 
             PatternService.addPattern(newPattern);
-            System.out.println(image.getEncodedImage());
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Added!");
+            alert.setContentText("Pattern has been added!");
+            alert.showAndWait();
         }
     }
 
