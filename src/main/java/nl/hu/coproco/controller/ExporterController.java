@@ -49,7 +49,10 @@ public class ExporterController implements Initializable {
         }
 
         File file = this.askForFileLocation(new FileChooser.ExtensionFilter(exporttype.getSelectionModel().getSelectedItem(), "*"));
-        ExportService.getExportForType(exporttype.getSelectionModel().getSelectedItem()).saveExport(file);
+
+        if (file != null) {
+            ExportService.getExportForType(exporttype.getSelectionModel().getSelectedItem()).saveExport(file);
+        }
     }
 
     private File askForFileLocation(FileChooser.ExtensionFilter... elements) {
