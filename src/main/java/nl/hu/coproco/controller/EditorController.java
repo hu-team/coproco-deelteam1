@@ -1,9 +1,13 @@
 package nl.hu.coproco.controller;
 
+import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -11,23 +15,29 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import nl.hu.coproco.domain.Pattern;
+import nl.hu.coproco.domain.ProxyImage;
 import nl.hu.coproco.domain.Purpose;
 import nl.hu.coproco.domain.Scope;
 import nl.hu.coproco.service.PatternService;
+import nl.hu.coproco.service.PurposeService;
+import nl.hu.coproco.service.ScopeService;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditorController implements Initializable{
 
     @FXML private TextField namefield;
-    @FXML private ComboBox scopebox;
-    @FXML private ComboBox purposebox;
+    @FXML private ComboBox<Scope> scopebox;
+    @FXML private ComboBox<Purpose> purposebox;
     @FXML private TextField problemfield;
     @FXML private TextField solutionfield;
     @FXML private TextField consequencesfield;
@@ -39,10 +49,18 @@ public class EditorController implements Initializable{
     @FXML private Button cancelbutton;
     @FXML private Button addbutton;
 
+    @FXML private VBox editorcontainer;
+
+    private Parent root;
+    private Stage windowStage;
+
+    private BufferedImage image;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        scopebox.setItems(FXCollections.observableArrayList(ScopeService.getAllScopes()));
+        purposebox.setItems(FXCollections.observableArrayList(PurposeService.getAllPurposes()));
     }
 
     @FXML private void addPatern(ActionEvent event){
@@ -65,9 +83,11 @@ public class EditorController implements Initializable{
             newPattern.setProblem(problemfield.getText());
             newPattern.setSolution(solutionfield.getText());
 
-            //TODO hier moet nog image gedoe komen
+            ProxyImage image = new ProxyImage(this.image);
+            newPattern.setDiagram(image);
 
             PatternService.addPattern(newPattern);
+            System.out.println(image.getEncodedImage());
         }
     }
 
@@ -75,23 +95,28 @@ public class EditorController implements Initializable{
 
         FileChooser fileChooser = new FileChooser();
 
-        FileChooser.ExtensionFilter filterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
-        FileChooser.ExtensionFilter filterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
-        fileChooser.getExtensionFilters().addAll(filterJPG, filterPNG);
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
 
         File file = fileChooser.showOpenDialog(null);
 
         try {
-
-            BufferedImage bufferedImage = ImageIO.read(file);
-            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+            this.image = ImageIO.read(file);
+            Image image = SwingFXUtils.toFXImage(this.image, null);
             diagramfield.setImage(image);
             diagramfield.setFitWidth(imagepane.getWidth());
             diagramfield.setPreserveRatio(true);
 
         }catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
+    }
+
+    @FXML private void openMainMenu() throws IOException {
+        windowStage = (Stage) editorcontainer.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
+        windowStage.setScene(new Scene(root));
     }
 }

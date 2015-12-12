@@ -40,8 +40,14 @@ public class PatternStorage extends Observable {
     }
 
     public ArrayList<Pattern> getFilteredPatterns(Purpose purpose, Scope scope) {
-        // TODO
+        ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 
-        return null;
+        for(Pattern p : patternStorage){
+            if(p.getPurpose().getName() == purpose.getName() && p.getScope().getName() == scope.getName()){
+                patterns.add(p);
+            }
+        }
+
+        return patterns;
     }
 }

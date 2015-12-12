@@ -81,4 +81,8 @@ public class Pattern extends Observable {
     public CachableImage getDiagram() {
         return this.diagram;
     }
+
+    public String toString(){
+        return this.problem;
+    }
 }

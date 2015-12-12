@@ -13,4 +13,8 @@ public class Scope {
     public String getName() {
         return this.name;
     }
+
+    public String toString() {
+        return this.name;
+    }
 }

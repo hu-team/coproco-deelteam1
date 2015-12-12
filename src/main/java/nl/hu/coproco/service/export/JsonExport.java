@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
 import nl.hu.coproco.domain.PatternStorage;
 import nl.hu.coproco.domain.Pattern;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
 import java.io.PrintWriter;
@@ -55,7 +54,11 @@ public class JsonExport implements Export {
                 jObj.addProperty("Consequences", allPatterns.get(i).getConsequences());
                 jObj.addProperty("ScopeName", allPatterns.get(i).getScope().getName());
                 jObj.addProperty("PurposeName", allPatterns.get(i).getPurpose().getName());
+//<<<<<<< HEAD
                 //jObj.addProperty("Diagram", allPatterns.get(i).getDiagram().getFilePath());
+//=======
+                //jObj.addProperty("Diagram", allPatterns.get(i).getDiagram().getEncodedImage());
+//>>>>>>> cef2b162376774694ccc53caf4af2be5fdc28bf8
 
                 //This is optional, but could be useful
                 jObj.addProperty("ClassName", allPatterns.get(i).getClass().getName());
