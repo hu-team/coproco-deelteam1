@@ -74,5 +74,6 @@ public class PatternStorage extends Observable {
 
     public void setPatterns(ArrayList<Pattern> patterns) {
         this.patternStorage = patterns;
+        this.notifyObservers();
     }
 }

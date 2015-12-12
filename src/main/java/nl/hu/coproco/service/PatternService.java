@@ -16,6 +16,7 @@ public class PatternService {
     public static ArrayList<Pattern> getAllPatterns() {
         return PatternStorage.getInstance().getPatterns();
     }
+    public static void setAllPatterns(ArrayList<Pattern> patterns) {PatternStorage.getInstance().setPatterns(patterns);}
 
     public static ArrayList<Pattern> getFilteredPatterns(Purpose purpose, Scope scope) {
         return PatternStorage.getInstance().getFilteredPatterns(purpose, scope);
