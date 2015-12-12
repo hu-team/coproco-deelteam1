@@ -5,6 +5,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import nl.hu.coproco.Main;
 import nl.hu.coproco.domain.Pattern;
+import nl.hu.coproco.service.PatternService;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,15 +15,8 @@ import java.util.ArrayList;
 
 
 public class JsonExport implements Export {
-    private ArrayList<Pattern> allPatterns;
-
     // Initializing new JsonArray
     private JsonArray jArry = new JsonArray();
-
-    // test function
-    public JsonExport(ArrayList<Pattern> patterns){
-        this.allPatterns = patterns;
-    }
 
     // Main method used to call the other methods and use this class
     public boolean saveExport(File file) {
@@ -37,7 +31,7 @@ public class JsonExport implements Export {
     private boolean fillJsonArray(){
         // try catch to fill up the Json-array
         try {
-            for (Pattern pattern : allPatterns) {
+            for (Pattern pattern : PatternService.getAllPatterns()) {
                 JsonObject jObj = new JsonObject();
                 // One JsonObject per Object in the ArrayList
 

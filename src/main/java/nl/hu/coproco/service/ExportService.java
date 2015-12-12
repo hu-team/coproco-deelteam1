@@ -21,7 +21,7 @@ public class ExportService {
 
     public static Export getExportForType(String type) {
         if (type.equals(EXPORT_JSON)) {
-            return new JsonExport(PatternService.getAllPatterns());
+            return new JsonExport();
         }
         if (type.equals(EXPORT_XML)) {
             return new XmlExport();
