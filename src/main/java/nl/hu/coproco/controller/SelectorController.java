@@ -55,6 +55,8 @@ public class SelectorController implements Initializable, Observer, EventHandler
 
         // On Change events
         scopebox.setOnAction(this);
+        purposebox.setOnAction(this);
+        problembox.setOnAction(this);
 
         PatternService.setObserver(this);
     }
