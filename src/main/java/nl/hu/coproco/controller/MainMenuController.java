@@ -64,6 +64,8 @@ public class MainMenuController implements Initializable {
         );
         File file = fileChooser.showOpenDialog(windowStage);
 
+        if (file == null) {return;}
+
         // Import and show confirm alert
         Alert alert = null;
         if (ImportService.executeImport(file)) {
