@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="exportercontainer" fx:id="exportercontainer" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.hu.coproco.controller.ExporterController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="exportbutton" layoutX="27.0" layoutY="79.0" mnemonicParsing="false" onAction="#onExport" text="Export JSON" />
+            <Button fx:id="cancelbutton" layoutX="27.0" layoutY="342.0" mnemonicParsing="false" onAction="#onCancel" text="Cancel" />
+            <ComboBox fx:id="exporttype" layoutX="27.0" layoutY="38.0" prefWidth="150.0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
