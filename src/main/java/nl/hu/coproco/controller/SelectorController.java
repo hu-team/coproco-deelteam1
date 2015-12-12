@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import nl.hu.coproco.domain.Pattern;
 import nl.hu.coproco.domain.Purpose;
 import nl.hu.coproco.domain.Scope;
 import nl.hu.coproco.service.PatternService;
@@ -43,6 +44,10 @@ public class SelectorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         scopebox.setItems(FXCollections.observableArrayList(ScopeService.getAllScopes()));
         purposebox.setItems(FXCollections.observableArrayList(PurposeService.getAllPurposes()));
+    }
+
+    @FXML private void selectProblem(){
+        //TODO Alle fields moeten gevuld worden.
     }
 
     @FXML private void filterProblem() {
