@@ -19,10 +19,10 @@ public class ImportService {
         // Determinate the importer to use
         String ext = FilenameUtils.getExtension(file.getAbsolutePath());
 
-        if (ext.equals("json")) {
+        if ("json".equals(ext)) {
             importer = new JsonImport();
         }
-        if (ext.equals("xml")) {
+        if ("xml".equals(ext)) {
             importer = new XmlImport();
         }
 

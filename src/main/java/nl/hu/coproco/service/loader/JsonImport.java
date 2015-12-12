@@ -60,6 +60,8 @@ public class JsonImport implements Import {
         int build = container.get("build").getAsInt();
         String version = container.get("version").getAsString();
 
+        System.out.println("Loading import with version " + version + " and build: " + build);
+
         // Get array
         JsonArray array = container.get("Patterns").getAsJsonArray();
 

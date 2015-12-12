@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class JsonExport implements Export {
     private ArrayList<Pattern> allPatterns;
-    private int i = 0;
 
     // Initializing new JsonArray
     private JsonArray jArry = new JsonArray();
@@ -38,32 +37,30 @@ public class JsonExport implements Export {
     private boolean fillJsonArray(){
         // try catch to fill up the Json-array
         try {
-            for (i = 0; i < allPatterns.size(); i++) {
+            for (Pattern pattern : allPatterns) {
                 JsonObject jObj = new JsonObject();
                 // One JsonObject per Object in the ArrayList
 
-                jObj.addProperty("Name", allPatterns.get(i).getName());
-                jObj.addProperty("Problem", allPatterns.get(i).getProblem());
-                jObj.addProperty("Solution", allPatterns.get(i).getSolution());
-                jObj.addProperty("Consequences", allPatterns.get(i).getConsequences());
-                jObj.addProperty("ScopeName", allPatterns.get(i).getScope().getName());
-                jObj.addProperty("PurposeName", allPatterns.get(i).getPurpose().getName());
-                jObj.addProperty("Diagram", allPatterns.get(i).getDiagram().getEncodedImage());
+                jObj.addProperty("Name", pattern.getName());
+                jObj.addProperty("Problem", pattern.getProblem());
+                jObj.addProperty("Solution", pattern.getSolution());
+                jObj.addProperty("Consequences", pattern.getConsequences());
+                jObj.addProperty("ScopeName", pattern.getScope().getName());
+                jObj.addProperty("PurposeName", pattern.getPurpose().getName());
+                jObj.addProperty("Diagram", pattern.getDiagram().getEncodedImage());
 
                 // This is optional, but could be useful when validating the class it was on the moment of exporting
-                jObj.addProperty("ClassName", allPatterns.get(i).getClass().getName());
+                jObj.addProperty("ClassName", pattern.getClass().getName());
 
                 // Adding to the array
                 jArry.add(jObj);
             }
-        }
-
-        catch(JsonIOException ex)
-        {
-            System.out.println("Error at " + i + "- fillJsonArray() Catch(){}");
+        } catch(JsonIOException ex) {
+            ex.printStackTrace();
             jArry = null;
             return false;
         }
+
         // If everything in the for loop has been written succesfully to the jArry it will return true,
         // so that it can be exported. You want to empty the jArry once you get an error to prevent duplicates.
         return true;

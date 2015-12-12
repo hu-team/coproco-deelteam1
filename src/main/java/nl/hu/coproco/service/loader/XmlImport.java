@@ -47,6 +47,8 @@ public class XmlImport implements Import {
             return false;
         }
 
+        System.out.println("Loading import with version " + version + " and build: " + build);
+
         // Parse the patterns
         ArrayList<Pattern> importedPatterns = this.parsePatterns(patterns);
 
