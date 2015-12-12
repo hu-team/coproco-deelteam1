@@ -9,4 +9,13 @@ public class ScopeService {
     public static ArrayList<Scope> getAllScopes() {
         return ScopeStorage.getInstance().getScopes();
     }
+
+    public static Scope getScopeByName(String scopeName) throws Exception {
+        for (Scope scope: getAllScopes()) {
+            if (scope.getName().equals(scopeName)) {
+                return scope;
+            }
+        }
+        return null;
+    }
 }
