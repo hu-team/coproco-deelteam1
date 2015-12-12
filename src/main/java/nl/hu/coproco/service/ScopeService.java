@@ -10,7 +10,7 @@ public class ScopeService {
         return ScopeStorage.getInstance().getScopes();
     }
 
-    public static Scope getScopeByName(String scopeName) throws Exception {
+    public static Scope getScopeByName(String scopeName) {
         for (Scope scope: getAllScopes()) {
             if (scope.getName().equals(scopeName)) {
                 return scope;

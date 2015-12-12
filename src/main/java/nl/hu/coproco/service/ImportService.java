@@ -2,6 +2,7 @@ package nl.hu.coproco.service;
 
 import nl.hu.coproco.service.loader.Import;
 import nl.hu.coproco.service.loader.JsonImport;
+import nl.hu.coproco.service.loader.XmlImport;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
@@ -22,7 +23,7 @@ public class ImportService {
             importer = new JsonImport();
         }
         if (ext.equals("xml")) {
-            //importer = new ObjectImport();
+            importer = new XmlImport();
         }
 
         if (importer == null) {
