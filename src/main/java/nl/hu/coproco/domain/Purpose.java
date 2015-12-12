@@ -1,8 +1,8 @@
 package nl.hu.coproco.domain;
 
-import java.util.Observable;
+import java.io.Serializable;
 
-public class Purpose {
+public class Purpose implements Serializable {
     private String name;
 
     public Purpose(String name) {

@@ -7,8 +7,9 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 
-public class ProxyImage implements CachableImage {
+public class ProxyImage implements CachableImage, Serializable {
     private DiskImage diskImage;
     private String encodedImage;
 
@@ -34,8 +35,6 @@ public class ProxyImage implements CachableImage {
     }
 
     private void convertToBase64(BufferedImage image) {
-
-        String imageString = null;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
         try {

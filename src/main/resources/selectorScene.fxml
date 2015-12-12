@@ -21,8 +21,8 @@
                   <Label id="namefield" fx:id="namefield" alignment="TOP_LEFT" layoutX="68.0" layoutY="14.0" prefHeight="55.0" prefWidth="218.0" wrapText="true" />
                   <Label id="solutionfield" fx:id="solutionfield" alignment="TOP_LEFT" layoutX="68.0" layoutY="69.0" prefHeight="55.0" prefWidth="218.0" wrapText="true" />
                   <Label layoutX="11.0" layoutY="69.0" text="Solution:" />
-                  <Label layoutX="11.0" layoutY="124.0" text="Solution:" />
-                  <Label id="consequencesfield" fx:id="consequencesfield" alignment="TOP_LEFT" layoutX="68.0" layoutY="124.0" prefHeight="92.0" prefWidth="218.0" wrapText="true" />
+                  <Label layoutX="11.0" layoutY="124.0" text="Consequences" />
+                  <Label id="consequencesfield" fx:id="consequencesfield" alignment="TOP_LEFT" layoutX="68.0" layoutY="141.0" prefHeight="92.0" prefWidth="218.0" wrapText="true" />
                </children>
             </Pane>
             <Pane layoutX="323.0" layoutY="17.0" prefHeight="342.0" prefWidth="263.0" style="-fx-border-color: black; -fx-border-style: dotted;">

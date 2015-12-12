@@ -16,7 +16,7 @@ public class PurposeStorage {
 
 
     public PurposeStorage() {
-        this.purposeStorage = new ArrayList<Purpose>();
+        this.purposeStorage = new ArrayList<>();
 
         this.initDefaultPurposes();
     }
