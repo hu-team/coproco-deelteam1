@@ -61,10 +61,6 @@ public class SelectorController implements Initializable, Observer, EventHandler
         PatternService.setObserver(this);
     }
 
-    @FXML private void selectProblem(){
-        //TODO Alle fields moeten gevuld worden.
-    }
-
     @FXML private void filterProblem() {
         problembox.getSelectionModel().clearSelection();
         problembox.getItems().clear();
