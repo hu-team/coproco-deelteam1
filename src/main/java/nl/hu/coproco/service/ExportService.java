@@ -2,13 +2,13 @@ package nl.hu.coproco.service;
 
 import nl.hu.coproco.service.export.Export;
 import nl.hu.coproco.service.export.JsonExport;
-import nl.hu.coproco.service.export.ObjectExport;
+import nl.hu.coproco.service.export.XmlExport;
 
 import java.util.ArrayList;
 
 public class ExportService {
     public final static String EXPORT_JSON = "JSON";
-    public final static String EXPORT_OBJECT = "Object File";
+    public final static String EXPORT_XML = "XML";
 
     public static JsonExport exportJson() {
         return new JsonExport(PatternService.getAllPatterns());
@@ -18,7 +18,7 @@ public class ExportService {
         ArrayList<String> returning = new ArrayList<>();
 
         returning.add(EXPORT_JSON);
-        returning.add(EXPORT_OBJECT);
+        returning.add(EXPORT_XML);
 
         return returning;
     }
@@ -27,8 +27,8 @@ public class ExportService {
         if (type.equals(EXPORT_JSON)) {
             return new JsonExport(PatternService.getAllPatterns());
         }
-        if (type.equals(EXPORT_OBJECT)) {
-            return new ObjectExport();
+        if (type.equals(EXPORT_XML)) {
+            return new XmlExport();
         }
 
         return null;
