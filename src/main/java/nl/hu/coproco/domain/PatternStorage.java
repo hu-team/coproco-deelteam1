@@ -16,7 +16,7 @@ public class PatternStorage extends Observable {
     }
 
     public PatternStorage() {
-        this.patternStorage = new ArrayList<Pattern>();
+        this.patternStorage = new ArrayList<>();
         this.initDefaultPatterns();
     }
 
@@ -60,7 +60,7 @@ public class PatternStorage extends Observable {
     }
 
     public ArrayList<Pattern> getFilteredPatterns(String purposeName, String scopeName) {
-        ArrayList<Pattern> returningPatterns = new ArrayList<Pattern>();
+        ArrayList<Pattern> returningPatterns = new ArrayList<>();
 
         for(Pattern pattern: this.patternStorage) {
             if ((purposeName == null || pattern.getPurpose().getName().equals(purposeName))

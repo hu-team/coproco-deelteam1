@@ -30,7 +30,7 @@ public class DiskImage implements CachableImage, Serializable {
     }
 
     private void decodeImage(String base64Image) {
-        BufferedImage bufferedImage = null;
+        BufferedImage bufferedImage;
 
         byte[] imageByte;
 

@@ -10,10 +10,6 @@ public class ExportService {
     public final static String EXPORT_JSON = "JSON";
     public final static String EXPORT_XML = "XML";
 
-    public static JsonExport exportJson() {
-        return new JsonExport(PatternService.getAllPatterns());
-    }
-
     public static ArrayList<String> getAvailableTypes() {
         ArrayList<String> returning = new ArrayList<>();
 

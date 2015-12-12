@@ -4,14 +4,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import nl.hu.coproco.Main;
-import nl.hu.coproco.domain.PatternStorage;
 import nl.hu.coproco.domain.Pattern;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 

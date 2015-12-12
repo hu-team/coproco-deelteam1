@@ -16,7 +16,7 @@ public class ScopeStorage {
 
 
     public ScopeStorage() {
-        this.scopeStorage = new ArrayList<Scope>();
+        this.scopeStorage = new ArrayList<>();
 
         this.initDefaultScopes();
     }

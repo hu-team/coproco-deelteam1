@@ -35,8 +35,6 @@ public class ProxyImage implements CachableImage, Serializable {
     }
 
     private void convertToBase64(BufferedImage image) {
-
-        String imageString = null;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
         try {
