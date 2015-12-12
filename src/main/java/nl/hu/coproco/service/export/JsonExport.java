@@ -7,6 +7,7 @@ import nl.hu.coproco.Main;
 import nl.hu.coproco.domain.PatternStorage;
 import nl.hu.coproco.domain.Pattern;
 
+import java.io.File;
 import java.io.IOException;
 
 import java.io.PrintWriter;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 
 
 public class JsonExport implements Export {
-    private PatternStorage patternStorage;
     private ArrayList<Pattern> allPatterns;
     private int i = 0;
 
@@ -24,26 +24,21 @@ public class JsonExport implements Export {
     private JsonArray jArry = new JsonArray();
 
     // test function
-    public JsonExport(PatternStorage PatternStorage){
-        patternStorage = PatternStorage;
+    public JsonExport(ArrayList<Pattern> patterns){
+        this.allPatterns = patterns;
     }
 
     // Main method used to call the other methods and use this class
-    public boolean saveExport(String filename) {
+    public boolean saveExport(File file) {
         if(fillJsonArray()){
             // Create the JSon output file
-
-            createJsonOutputFile(filename);
+            createJsonOutputFile(file);
             return true;
-
-        }else{return false;}
+        }
+        return false;
     }
 
     private boolean fillJsonArray(){
-        // getting all patterns, should use the controller instead of speaking directly to patternStorage
-        allPatterns = patternStorage.getPatterns();
-
-
         // try catch to fill up the Json-array
         try {
             for (i = 0; i < allPatterns.size(); i++) {
@@ -71,37 +66,38 @@ public class JsonExport implements Export {
             System.out.println("Error at " + i + "- fillJsonArray() Catch(){}");
             jArry = null;
             return false;
-
         }
         // If everything in the for loop has been written succesfully to the jArry it will return true,
         // so that it can be exported. You want to empty the jArry once you get an error to prevent duplicates.
         return true;
     }
 
-    private void createJsonOutputFile(String filename) {
+    private void createJsonOutputFile(File file) {
         // Creating the output JSon file
         JsonObject outputFileJSon = new JsonObject();
 
-        outputFileJSon.addProperty("name", filename);
+        outputFileJSon.addProperty("name", file.getName());
         outputFileJSon.addProperty("build", Main.BUILD);
         outputFileJSon.addProperty("version", Main.VERSION);
 
         outputFileJSon.add("Patterns", jArry);
 
         // Actually writing the data to a file
-        writeFile(outputFileJSon);
+        writeFile(file, outputFileJSon);
     }
 
-    private void writeFile(JsonObject outputFileJSon) {
+    private void writeFile(File file, JsonObject outputFileJSon) {
         try{
             // Creating the actual file for the client. Path could contain variables to decide the path yourself, but we should have a String for it then
-            PrintWriter exportFile = new PrintWriter("Patterns.txt", "UTF-8");
+            PrintWriter exportFile = new PrintWriter(file, "UTF-8");
             // Writing the JSon to text in this file
 
             exportFile.write(outputFileJSon.toString());
             exportFile.close();
             System.out.println("Succesfully copied JSON Object to File...");
         }
-        catch(IOException ex){System.out.println("Error at writeFile() IOException");}
+        catch(IOException ex){
+            System.out.println("Error at writeFile() IOException");
+        }
     }
 }
