@@ -16,6 +16,7 @@
             </Label>
             <Button id="editorbutton" fx:id="editorbutton" layoutX="30.0" layoutY="151.0" mnemonicParsing="false" onAction="#openEditor" prefHeight="25.0" prefWidth="230.0" stylesheets="@styles/mainbutton.css" text="Editor Pattern" />
             <Button id="selectorbutton" fx:id="selectorbutton" layoutX="30.0" layoutY="200.0" mnemonicParsing="false" onAction="#openSelector" prefHeight="25.0" prefWidth="230.0" stylesheets="@styles/mainbutton.css" text="Selector Pattern" />
+            <Button id="exportbutton" fx:id="exportbutton" layoutX="30.0" layoutY="245.0" mnemonicParsing="false" onAction="#openExporter" prefHeight="25.0" prefWidth="230.0" stylesheets="@styles/mainbutton.css" text="Export Patterns" />
          </children>
       </AnchorPane>
    </children>

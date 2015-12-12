@@ -20,6 +20,7 @@ public class MainMenuController implements Initializable {
 
     @FXML private Button editorbutton;
     @FXML private Button selectorbutton;
+    @FXML private Button exportbutton;
     @FXML private VBox mainmenucontainer;
 
     private Parent root;
@@ -41,6 +42,13 @@ public class MainMenuController implements Initializable {
 
         windowStage = (Stage) mainmenucontainer.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/selectorScene.fxml"));
+        windowStage.setScene(new Scene(root));
+    }
+
+    @FXML private void openExporter() throws IOException {
+
+        windowStage = (Stage) mainmenucontainer.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("/exporterScene.fxml"));
         windowStage.setScene(new Scene(root));
     }
 }
