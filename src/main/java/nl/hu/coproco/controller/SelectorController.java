@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import nl.hu.coproco.domain.Purpose;
 import nl.hu.coproco.domain.Scope;
+import nl.hu.coproco.service.PatternService;
 import nl.hu.coproco.service.PurposeService;
 import nl.hu.coproco.service.ScopeService;
 
@@ -44,9 +45,28 @@ public class SelectorController implements Initializable {
         purposebox.setItems(FXCollections.observableArrayList(PurposeService.getAllPurposes()));
     }
 
+    @FXML private void filterProblem() {
+        problembox.getSelectionModel().clearSelection();
+        problembox.getItems().clear();
+
+        if(purposebox.getSelectionModel().getSelectedItem() == null ||
+                scopebox.getSelectionModel().getSelectedItem() == null){
+            return;
+        }
+
+        problembox.setItems(FXCollections
+                .observableArrayList(PatternService
+                        .getFilteredPatterns(
+                                purposebox.getSelectionModel().getSelectedItem(),
+                                scopebox.getSelectionModel().getSelectedItem())
+                )
+        );
+    }
+
     @FXML private void openMainMenu() throws IOException {
         windowStage = (Stage) selectorcontainer.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
         windowStage.setScene(new Scene(root));
     }
+
 }
