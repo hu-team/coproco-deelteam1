@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
@@ -51,7 +52,19 @@ public class ExporterController implements Initializable {
         File file = this.askForFileLocation(new FileChooser.ExtensionFilter(exporttype.getSelectionModel().getSelectedItem(), "*"));
 
         if (file != null) {
-            ExportService.getExportForType(exporttype.getSelectionModel().getSelectedItem()).saveExport(file);
+            Alert alert = null;
+
+            if (ExportService.getExportForType(exporttype.getSelectionModel().getSelectedItem()).saveExport(file)) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Exported!!");
+                alert.setContentText("Your export has been made!");
+            }else{
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Export failed!");
+                alert.setContentText("Error with exporting the patterns! Look at the console for more information.");
+            }
+
+            alert.showAndWait();
         }
     }
 
