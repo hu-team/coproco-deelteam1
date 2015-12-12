@@ -5,7 +5,6 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import nl.hu.coproco.Main;
 import nl.hu.coproco.domain.Pattern;
-import nl.hu.coproco.domain.PatternStorage;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,27 +19,6 @@ public class JsonExport implements Export {
     // Initializing new JsonArray
     private JsonArray jArry = new JsonArray();
 
-        //test function
-    public JsonExport(PatternStorage PatternStorage){
-            patternStorage = PatternStorage;
-    }
-
-    //Main method used to call the other methods and use this class
-    public boolean saveExport(String filename) {
-       if(fillJsonArray()){
-           //Create the JSon output file
-           createJsonOutputFile(filename);
-           return true;
-
-       }else{return false;}
-    }
-
-    private boolean fillJsonArray(){
-        //getting all patterns, should use the controller instead of speaking directly to patternStorage
-        allPatterns = patternStorage.getPatterns();
-
-        //try catch to fill up the Json-array
-=======
     // test function
     public JsonExport(ArrayList<Pattern> patterns){
         this.allPatterns = patterns;
@@ -58,7 +36,6 @@ public class JsonExport implements Export {
 
     private boolean fillJsonArray(){
         // try catch to fill up the Json-array
-//>>>>>>> 1bc53e67d26f87f996c5bdf7ce81387dfaae4d4d
         try {
             for (Pattern pattern : allPatterns) {
                 JsonObject jObj = new JsonObject();
