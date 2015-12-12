@@ -89,7 +89,7 @@ public class JsonExport implements Export {
     private void writeFile(File file, JsonObject outputFileJSon) {
         try{
             // Creating the actual file for the client. Path could contain variables to decide the path yourself, but we should have a String for it then
-            PrintWriter exportFile = new PrintWriter(file, "UTF-8");
+            PrintWriter exportFile = new PrintWriter(file.getAbsoluteFile() + ".json", "UTF-8");
             // Writing the JSon to text in this file
 
             exportFile.write(outputFileJSon.toString());
