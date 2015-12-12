@@ -7,8 +7,9 @@ import org.apache.commons.codec.binary.Base64;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.Serializable;
 
-public class DiskImage implements CachableImage {
+public class DiskImage implements CachableImage, Serializable {
     private String encodedImage;
 
     private Image image;

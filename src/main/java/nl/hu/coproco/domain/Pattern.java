@@ -1,9 +1,10 @@
 package nl.hu.coproco.domain;
 
 
+import java.io.Serializable;
 import java.util.Observable;
 
-public class Pattern extends Observable {
+public class Pattern extends Observable implements Serializable {
     private String name;
 
     private String problem;
