@@ -10,9 +10,6 @@ import nl.hu.coproco.service.PatternService;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-
-
 
 public class JsonExport implements Export {
     // Initializing new JsonArray
