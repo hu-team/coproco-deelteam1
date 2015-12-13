@@ -33,6 +33,15 @@ sourceSets {
     }
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+tasks.withType(Jar) {
+    destinationDir = file("$rootDir/build/jar")
+}
 
 task execute(type:JavaExec) {
     main = mainClassName
