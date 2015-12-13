@@ -95,6 +95,14 @@ public class EditorController implements Initializable{
             alert.setTitle("Added!");
             alert.setContentText("Pattern has been added!");
             alert.showAndWait();
+
+            namefield.clear();
+            scopebox.getSelectionModel().clearSelection();
+            purposebox.getSelectionModel().clearSelection();
+            problemfield.clear();
+            solutionfield.clear();
+            consequencesfield.clear();
+            diagramfield.setImage(null);
         }
     }
 
